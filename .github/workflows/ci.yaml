@@ -1,4 +1,4 @@
-name: CI - Test and Build 
+name: CI - Test and Build
 
 on:
   push:
@@ -9,18 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Code
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
-        with: python-version: '3.12'
-        
+        with:
+          python-version: '3.12'
+
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: |
+          pip install -r requirements.txt
 
       - name: Run Tests
-        run: pytest
+        run: |
+          pytest
 
       - name: Build Docker Image
-        run: docker build -t devops-flask-app .
+        run: |
+          docker build -t devops-flask-app .

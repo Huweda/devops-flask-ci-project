@@ -52,5 +52,5 @@ jobs:
 
       - name: Push Docker Image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-flask-app .
-          docker push ${{ secrets.DOCKER_USERNAME }}/devops-flask-app
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/devops-flask-app:${{ github.run_number}} .
+          docker push ${{ secrets.DOCKER_USERNAME }}/devops-flask-app:${{ github.run_number}}

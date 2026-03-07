@@ -59,3 +59,6 @@ jobs:
         run: |
           docker push ${{ secrets.DOCKER_USERNAME }}/devops-flask-app:${{ github.run_number }}
           docker push ${{ secrets.DOCKER_USERNAME }}/devops-flask-app:latest
+
+      - name: Trigger Render Deployment
+        run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}

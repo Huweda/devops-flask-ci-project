@@ -12,6 +12,7 @@ A simple Flask application demonstrating a complete CI/CD pipeline using Docker,
 - Render
 
 ## ⚙️ CI/CD Pipeline Architecture
+```
 Developer
    │
    ▼
@@ -32,9 +33,10 @@ Render Cloud Platform
    │
    ▼
 Live Flask Application
+```
 
 ## 📂 Project Structure
-
+```
 devops-flask-ci-project/
 │
 ├── app.py                # Main Flask application
@@ -49,6 +51,7 @@ devops-flask-ci-project/
 │       └── ci-cd.yml     # GitHub Actions workflow for CI/CD pipeline
 │
 └── README.md             # Project documentation
+```
 
 ## Deployment
 Live Application  

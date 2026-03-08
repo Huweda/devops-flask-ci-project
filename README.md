@@ -1,7 +1,8 @@
 # DevOps Flask CI/CD Project 🚀
+![CI/CD Pipeline](https://github.com/Huweda/devops-flask-ci-project/actions/workflows/ci-cd.yml/badge.svg)
 
 ## 📌 Overview
-A simple Flask application demonstrating a complete DevOps pipeline.
+A simple Flask application demonstrating a complete CI/CD pipeline using Docker, GitHub Actions, Docker Hub, and Render.
 
 ## 🛠 Tech Stack
 - Flask
@@ -10,10 +11,52 @@ A simple Flask application demonstrating a complete DevOps pipeline.
 - Docker Hub
 - Render
 
-## Deployment URL
+## ⚙️ CI/CD Pipeline Architecture
+Developer
+   │
+   ▼
+GitHub Repository
+   │
+   ▼
+GitHub Actions (CI Pipeline)
+   │
+   ├─ Run Tests
+   ├─ Build Docker Image
+   └─ Push Image → Docker Hub
+   │
+   ▼
+Render Deploy Hook
+   │
+   ▼
+Render Cloud Platform
+   │
+   ▼
+Live Flask Application
+
+## 📂 Project Structure
+
+devops-flask-ci-project/
+│
+├── app.py                # Main Flask application
+├── test_app.py           # Unit tests for the Flask app
+├── requirements.txt      # Python dependencies
+├── Dockerfile            # Docker image configuration
+│
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml     # GitHub Actions CI/CD pipeline
+│
+└── README.md             # Project documentation
+
+## Deployment
+Live Application  
 https://devops-flask-app-f2ox.onrender.com/
 
+Health Check Endpoint  
+https://devops-flask-app-f2ox.onrender.com/health
+
 ## 🚀 Features
-- Containerized using Docker
-- Automated CI pipeline
-- Cloud deployment on Render
+- Containerized Flask application using Docker
+- Automated CI/CD pipeline using GitHub Actions
+- Docker image versioning and push to Docker Hub
+- Automatic deployment to Render via deploy hook

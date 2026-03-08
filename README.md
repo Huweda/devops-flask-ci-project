@@ -38,13 +38,15 @@ Live Flask Application
 devops-flask-ci-project/
 │
 ├── app.py                # Main Flask application
-├── test_app.py           # Unit tests for the Flask app
-├── requirements.txt      # Python dependencies
-├── Dockerfile            # Docker image configuration
+├── test_app.py           # Unit tests for the Flask application
+├── requirements.txt      # Python dependencies required for the app
+├── Dockerfile            # Instructions to build the Docker container image
+├── .dockerignore         # Files excluded from the Docker build context
+├── .env.example          # Example environment variables template
 │
 ├── .github/
 │   └── workflows/
-│       └── ci-cd.yml     # GitHub Actions CI/CD pipeline
+│       └── ci-cd.yml     # GitHub Actions workflow for CI/CD pipeline
 │
 └── README.md             # Project documentation
 

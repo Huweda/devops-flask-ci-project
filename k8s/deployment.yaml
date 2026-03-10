@@ -22,5 +22,9 @@ spec:
       containers:
         - name: flask-container
           image: huweda/devops-flask-app:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 5000
+          env:
+            - name: APP_MESSAGE
+              value: "Hello from Kubernetes!"

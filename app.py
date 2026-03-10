@@ -3,9 +3,11 @@ import os
 
 app = Flask(__name__)
 
+APP_MESSAGE = os.getenv("APP_MESSAGE", "Hello from Flask DevOps App!")
+
 @app.route("/")
 def home():
-    return "Hello DevOps - Version 2"
+    return APP_MESSAGE
 
 @app.route("/health")
 def health():

@@ -1,15 +1,22 @@
 # DevOps Flask CI/CD Project 🚀
+![Docker](https://img.shields.io/badge/Docker-Container-blue)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-Orchestration-blue)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-CI/CD-blue)
+![Flask](https://img.shields.io/badge/Flask-Python-green)
+![DevOps](https://img.shields.io/badge/DevOps-Pipeline-orange)
 ![CI/CD Pipeline](https://github.com/Huweda/devops-flask-ci-project/actions/workflows/ci-cd.yml/badge.svg)
 
 ## 📌 Overview
-A simple Flask application demonstrating a complete CI/CD pipeline using Docker, GitHub Actions, Docker Hub, and Render.
+End-to-end DevOps pipeline for a Flask app using Docker, GitHub Actions, Docker Hub, Kubernetes (Minikube) and Render deployment.
 
-## 🛠 Tech Stack
-- Flask
-- Docker
-- GitHub Actions
-- Docker Hub
-- Render
+## 🚀 Key Features
+- Containerized Flask application using Docker
+- Automated CI/CD pipeline using GitHub Actions
+- Docker image versioning and push to Docker Hub
+- Automatic deployment to Render via deploy hook
+- Kubernetes deployment using Minikube
+- Horizontal Pod Autoscaling based on CPU usage
+- Production-style DevOps workflow
 
 ## ⚙️ CI/CD Pipeline Architecture
 ```git
@@ -34,6 +41,47 @@ Render Cloud Platform
    ▼
 Live Flask Application
 ```
+
+## ☸️ Kubernetes Architecture
+
+The application is deployed on Kubernetes using a Deployment, exposed via a Service, and scaled automatically using Horizontal Pod Autoscaler.
+
+```
+Docker Hub Image
+       │
+       ▼
+Kubernetes Deployment
+       │
+       ▼
+     Pods
+       │
+       ▼
+    Service
+       │
+       ▼
+Horizontal Pod Autoscaler
+       │
+       ▼
+   Scaled Pods
+```
+
+## 🛠 Tech Stack
+**Application**
+- Flask
+
+**Containerization**
+- Docker
+- Docker Hub
+
+**CI/CD**
+- GitHub Actions
+
+**Orchestration**
+- Kubernetes
+- Minikube
+
+**Cloud Deployment**
+- Render
 
 ## 📂 Project Structure
 ```
@@ -65,13 +113,6 @@ https://devops-flask-app-f2ox.onrender.com/
 Health Check Endpoint  
 https://devops-flask-app-f2ox.onrender.com/health
 
-## 🚀 Features
-- Containerized Flask application using Docker
-- Automated CI/CD pipeline using GitHub Actions
-- Docker image versioning and push to Docker Hub
-- Automatic deployment to Render via deploy hook
-
-
 ## Kubernetes Deployment
 This application is deployed to Kubernetes using the following resources:
 
@@ -94,3 +135,32 @@ Configuration:
 Command used:
 
 kubectl autoscale deployment flask-app-deployment --cpu-percent=50 --min=2 --max=10
+
+## Quick Start
+
+## ⚡ Quick Start
+
+Start Minikube:
+
+minikube start
+
+Deploy Kubernetes resources:
+
+kubectl apply -f k8s/
+
+Check pods:
+
+kubectl get pods
+
+Access the service:
+
+minikube service flask-app-service
+
+## Environment Configuration
+
+The application supports environment variables for configuration.
+
+Example:
+APP_MESSAGE=Hello from Kubernetes!
+
+Environment variables can be configured in the Kubernetes deployment manifest.
